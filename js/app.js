@@ -1,5 +1,15 @@
+var url = window.location.href;
+var swLocation = '/twittor/sw.js'; // Esto se pone pq estamos utilizando GitHub para mostrar la aplicación
+// En este sitio lo que hacen es un directorio virtual con el nombre que hayamos creado el respositorio
+// (en este caso twittor) por lo que la raíz de nuestra aplicación no sería / sino que sería /twittor
+
 if ( navigator.serviceWorker ) {
-    navigator.serviceWorker.register ( '/sw.js' );
+    if ( url.includes ( 'localhost') )
+    {
+        swLocation = '/sw.js';    
+    }
+
+    navigator.serviceWorker.register ( swLocation );
 }
 
 
